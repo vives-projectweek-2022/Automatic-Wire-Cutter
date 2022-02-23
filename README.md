@@ -26,4 +26,4 @@
 
 ## Bestellijst
 
-![bestellijst](.\img/Bestellijst.png)
+![bestellijst](./img/Bestellijst.png)
