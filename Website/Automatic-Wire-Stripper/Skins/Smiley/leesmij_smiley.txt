@@ -1,0 +1,6 @@
+Schuifregelaars, skin smiley
+
+De breedte van de schuifknop in file srule_b.gif wijkt hier af van wat op de website is gebruikt.
+Daarom moeten de referenties aan de breedte van de knop (in de styles en in de "extra"table cell) worden veranderd van 10px in 15px
+
+

@@ -1,0 +1,37 @@
+
+<!-- De benodige bestanden staan in de subdirectory voorb200 -->
+
+<!-- Zet onderstaande code in de HEAD -->
+<link rel="stylesheet" href="sliderule.css">
+<script src="sliderule.js"></script>
+
+
+<!-- Plaats deze code in de HTML BODY -->
+<!-- op de plaats waar je hem nodig hebt, binnen een <FORM>...</FORM>-tag -->
+
+<form>
+<div id="SlideRulePlaceHolder_0" style="position:relative;">
+<table border="0" cellspacing="0" cellpadding="0"><tr>
+  <td width="200" class="SlideRuleBar">
+    <div id="SlideRuleButtonContainer_0" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
+    <img src="srule_b.gif" id="SlideRuleButton_0" alt="" border="0" class="SlideRuleButton"></div></td>
+  <td width="10" class="SlideRuleBar"></td><td width="10"></td>
+  <td><input type="text" id="SlideRuleField_0" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(0)"></td>
+</tr></table></div>
+
+<!-- Herhaal dit blok voor elke regelaar die je wilt gebruiken -->
+<!-- De eerste regelaar heeft volgnmmmer _0. Vervang door elk blok _0 door _1, _2 enz -->
+<!-- Pas ook de aanroep van changeSlideRule() aan -->
+
+<!-- De RESET-button is onderdeel van het formulier -->
+<input type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">
+</form>
+
+<!-- Roep voor elke regelaar function initSlideRule aan -->
+<script language="JavaScript" type="text/javascript">
+  initSlideRule(0,0,1,50);
+  // Voeg aanroepen toe voor elke extra regelaar
+</script>
+
+
+BB  14:01 16-5-2020

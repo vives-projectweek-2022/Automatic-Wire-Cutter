@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sliderule.css">
+    <script src="sliderule.js"></script>
+    <title>Automatic-Wire-Cutter</title>
+</head>
+<body>
+  <h1 id="header">Automatic Wire Cutter</h1>
+    <form >
+      <table>
+        <br></br>
+        <br></br>
+        <tr>
+          <td colspan="3"><img src="Wiredone2.png" alt="stripped wire"></td>
+        </tr>
+        <tr>
+          <th>
+            Left stripped
+          </th>
+          <th>
+            Middle unstripped
+          </th>
+          <th>
+            Right stripped
+          </th>
+        </tr>
+        <tr>
+        <td>
+        <div id="SlideRulePlaceHolder_0" style="position:relative;">
+        <table border="0" cellspacing="0" cellpadding="0"><tr>
+          <td width="200" class="SlideRuleBar">
+            <div id="SlideRuleButtonContainer_0" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
+            <img src="srule_b.gif" id="SlideRuleButton_0" alt=""  class="SlideRuleButton"></div></td>
+          <td width="10" class="SlideRuleBar"></td><td width="10"></td>
+          <td><input type="text" id="SlideRuleField_0" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(0)"> mm</td>
+        </tr></table></div>
+        <script language="JavaScript" type="text/javascript">
+            initSlideRule(0,0,4,0);
+        </script>
+        </td>
+        <td id="td2">
+        <div id="SlideRulePlaceHolder_1" style="position:relative;">
+          <table border="0" cellspacing="0" cellpadding="0"><tr>
+            <td width="200" class="SlideRuleBar">
+              <div id="SlideRuleButtonContainer_1" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
+              <img src="srule_b.gif" id="SlideRuleButton_1" alt=""  class="SlideRuleButton"></div></td>
+            <td width="10" class="SlideRuleBar"></td><td width="10"></td>
+            <td><input type="text" id="SlideRuleField_1" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(1)"> mm</td>
+          </tr></table></div>
+          <script language="JavaScript" type="text/javascript">
+            initSlideRule(1,0,0.2,0);
+          </script>
+        </td>
+        
+        <td id="td3">
+          <div id="SlideRulePlaceHolder_2" style="position:relative;">
+            <table border="0" cellspacing="0" cellpadding="0"><tr>
+              <td width="200" class="SlideRuleBar">
+                <div id="SlideRuleButtonContainer_2" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
+                <img src="srule_b.gif" id="SlideRuleButton_2" alt=""  class="SlideRuleButton"></div></td>
+              <td width="10" class="SlideRuleBar"></td><td width="10"></td>
+              <td><input type="text" id="SlideRuleField_2" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(2)"> mm</td>
+            </tr></table></div>
+            <script language="JavaScript" type="text/javascript">
+              initSlideRule(2,0,4,0);
+            </script>
+          </td>
+      </table>
+      <br> </br>
+      <input id="amount" type="number" /*value="1"*/ placeholder="Nr of wires" pattern="[0-9]*" inputmode="numeric">
+      <br></br>
+      <input id="button" type="button" value="start" onclick="startCutting()">
+      <input id="button" type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">    
+    </form>
+</body>
+</html>

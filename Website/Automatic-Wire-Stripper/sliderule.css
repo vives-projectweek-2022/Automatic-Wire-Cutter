@@ -1,0 +1,38 @@
+
+/* body{
+  background-color: #4ABCAD;
+} */
+.SlideRuleField {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  font-size:10pt; font-weight:bold;
+  color:black;
+  border:2px solid red; padding:0px 0px 0px 3px;
+}
+.SlideRuleBar {
+  background-image: url(srule_m.gif);
+  background-repeat: repeat-x; background-position: center;
+}
+.SlideRuleButton {
+  position:relative; width: 10px; height: 18px; z-index:3; right: 165px; top: 3px;
+  cursor:pointer;cursor:hand;
+}
+#button{
+  color: white;
+  font-size: large;
+  background-color: black;
+  width: 150px;
+  height: 25px;
+}
+#amount{
+  width: 140px;
+  height: 20px;
+}
+#header{
+  padding-left: 25%;
+}
+#td2{
+  padding-left: 85px;
+}
+#td3{
+  padding-left: 220px;
+}
