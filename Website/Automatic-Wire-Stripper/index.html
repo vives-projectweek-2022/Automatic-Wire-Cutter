@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sliderule.css">
     <script src="sliderule.js"></script>
+    <script src="scripts.js"></script>
     <title>Automatic-Wire-Cutter</title>
 </head>
 <body>
@@ -36,7 +37,7 @@
             <div id="SlideRuleButtonContainer_0" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
             <img src="srule_b.gif" id="SlideRuleButton_0" alt=""  class="SlideRuleButton"></div></td>
           <td width="10" class="SlideRuleBar"></td><td width="10"></td>
-          <td><input type="text" id="SlideRuleField_0" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(0)"> mm</td>
+          <td><input type="text" id="SlideRuleField_0" value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(0)"> mm</td>
         </tr></table></div>
         <script language="JavaScript" type="text/javascript">
             initSlideRule(0,0,4,0);
@@ -49,7 +50,7 @@
               <div id="SlideRuleButtonContainer_1" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
               <img src="srule_b.gif" id="SlideRuleButton_1" alt=""  class="SlideRuleButton"></div></td>
             <td width="10" class="SlideRuleBar"></td><td width="10"></td>
-            <td><input type="text" id="SlideRuleField_1" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(1)"> mm</td>
+            <td><input type="text" id="SlideRuleField_1" value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(1)"> mm</td>
           </tr></table></div>
           <script language="JavaScript" type="text/javascript">
             initSlideRule(1,0,0.2,0);
@@ -63,7 +64,7 @@
                 <div id="SlideRuleButtonContainer_2" style="position:absolute; width:200px; height:18px; z-index:1; left: 0px; top: 0px;">
                 <img src="srule_b.gif" id="SlideRuleButton_2" alt=""  class="SlideRuleButton"></div></td>
               <td width="10" class="SlideRuleBar"></td><td width="10"></td>
-              <td><input type="text" id="SlideRuleField_2" value="0" size="3" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(2)"> mm</td>
+              <td><input type="text" id="SlideRuleField_2" value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="3" class="SlideRuleField" onchange="changeSlideRule(2)"> mm</td>
             </tr></table></div>
             <script language="JavaScript" type="text/javascript">
               initSlideRule(2,0,4,0);
@@ -73,6 +74,7 @@
       <br> </br>
       <input id="amount" type="number" /*value="1"*/ placeholder="Nr of wires" pattern="[0-9]*" inputmode="numeric">
       <br></br>
+      <input id="button" type="button" value="scan" onclick="onScanButtonClick()">
       <input id="button" type="button" value="start" onclick="startCutting()">
       <input id="button" type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">    
     </form>

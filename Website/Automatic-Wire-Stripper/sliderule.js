@@ -5,6 +5,7 @@ var strt = new Array();
 var fact = new Array();
 var initial = new Array();
 var bb,aa = new Array();
+var datarray;
 
 function resetSlideRules() {
   var u = initial.length;
@@ -69,11 +70,13 @@ function startCutting(){
   var LeftStripped = document.getElementById('SlideRuleField_0').value;
   var middleNotStripped = document.getElementById('SlideRuleField_1').value;
   var RightStripped = document.getElementById('SlideRuleField_2').value;
-  var amount2 = document.getElementById('amount').value;
+  var amount2 = document.getElementById('amount').value;  
+  datarray = [LeftStripped, middleNotStripped, RightStripped, amount2];
   console.log(LeftStripped);
   console.log(middleNotStripped);
   console.log(RightStripped);
   console.log(amount2);
+  writeToCharacteristic();
 }
 
 function resetDragApproved() { dragapproved = false }
@@ -81,3 +84,64 @@ function resetDragApproved() { dragapproved = false }
 document.onmousedown = drags;
 document.onmouseup = resetDragApproved;
 window.onload = resetSlideRules;
+
+var bluetoothDevice;
+
+function onScanButtonClick() {
+  let options = {filters: []};
+
+  let filterService = '';
+  if (filterService.startsWith('0x')) {
+    filterService = parseInt(filterService);
+  }
+  if (filterService) {
+    options.filters.push({services: [filterService]});
+  }
+
+  let filterName = 'GattServer';
+  if (filterName) {
+    options.filters.push({name: filterName});
+  }
+
+  let filterNamePrefix = '';
+  if (filterNamePrefix) {
+    options.filters.push({namePrefix: filterNamePrefix});
+  }
+
+  bluetoothDevice = null;
+  console.log('Requesting Bluetooth Device...');
+  navigator.bluetooth.requestDevice(options)
+  .then(device => {
+    bluetoothDevice = device;
+    bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
+    return connect();
+  })
+  .catch(error => {
+    console.log('Argh! ' + error);
+  });
+}
+
+function connect() {
+  console.log('Connecting to Bluetooth Device...');
+  return bluetoothDevice.gatt.connect()
+  .then(server => {
+    console.log('> Bluetooth Device connected');
+  });
+}
+
+function onDisconnectButtonClick() {
+  if (!bluetoothDevice) {
+    return;
+  }
+  console.log('Disconnecting from Bluetooth Device...');
+  if (bluetoothDevice.gatt.connected) {
+    bluetoothDevice.gatt.disconnect();
+  } else {
+    console.log('> Bluetooth Device is already disconnected');
+  }
+}
+
+function writeToCharacteristic() {
+  let charac = characteristic(bluetoothDevice, 0xA000, 0xA001);
+  write((charac, datarray));
+}
