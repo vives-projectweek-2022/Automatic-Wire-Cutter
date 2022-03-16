@@ -6,6 +6,10 @@ var fact = new Array();
 var initial = new Array();
 var bb,aa = new Array();
 var datarray;
+var LeftStripped = document.getElementById('SlideRuleField_0').value;
+var middleNotStripped = document.getElementById('SlideRuleField_1').value;
+var RightStripped = document.getElementById('SlideRuleField_2').value;
+var amount2 = document.getElementById('amount').value;  
 
 function resetSlideRules() {
   var u = initial.length;
@@ -67,10 +71,6 @@ function drags(e) {
 }
 
 function startCutting(){
-  var LeftStripped = document.getElementById('SlideRuleField_0').value;
-  var middleNotStripped = document.getElementById('SlideRuleField_1').value;
-  var RightStripped = document.getElementById('SlideRuleField_2').value;
-  var amount2 = document.getElementById('amount').value;  
   datarray = [LeftStripped, middleNotStripped, RightStripped, amount2];
   console.log(LeftStripped);
   console.log(middleNotStripped);
@@ -111,10 +111,11 @@ function onScanButtonClick() {
   bluetoothDevice = null;
   console.log('Requesting Bluetooth Device...');
   navigator.bluetooth.requestDevice(options)
-  .then(device => {
-    bluetoothDevice = device;
-    bluetoothDevice.addEventListener('gattserverdisconnected', onDisconnected);
-    return connect();
+  .then(device => device.gatt.connect())
+  .then(server => server.getPrimaryService(0xA000))
+  .then(service => service.getCharacteristic(0xA001))
+  .then(characteristic => {
+    return characteristic.writeValue(datarray);
   })
   .catch(error => {
     console.log('Argh! ' + error);
@@ -142,6 +143,13 @@ function onDisconnectButtonClick() {
 }
 
 function writeToCharacteristic() {
-  let charac = characteristic(bluetoothDevice, 0xA000, 0xA001);
-  write((charac, datarray));
+  if (!bluetoothDevice) {
+    return;
+  }
+  console.log('Sending to Bluetooth device...');
+  if (bluetoothDevice.gatt.connected) {
+    bluetoothDevice.gatt.write();
+  } else {
+    console.log('> Bluetooth Device is disconnected');
+  }
 }
