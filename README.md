@@ -1,5 +1,7 @@
 # Automatic-Wire-Cutter
 
+[This is the link to the program repo](https://github.com/vives-projectweek-2022/program-wire-cutter)
+
 ## PARTS
 
 [Stappenmotor](https://www.amazon.nl/gp/product/B08RB5F9RW/ref=ox_sc_act_title_1?smid=A3MWTOW3Y5FBF1&psc=1)
