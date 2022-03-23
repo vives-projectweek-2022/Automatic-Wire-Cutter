@@ -4,13 +4,20 @@ body{
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-align: center;
+  margin:0, auto;
 } 
+
+td{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .center {
   margin-left: auto;
   margin-right: auto;
   width: 25%;
 }
-.SlideRuleField {
+/* .SlideRuleField {
   font-family:Verdana, Arial, Helvetica, sans-serif;
   font-size:10pt; font-weight:bold;
   color:black;
@@ -23,7 +30,7 @@ body{
 .SlideRuleButton {
   position:relative; width: 10px; height: 18px; z-index:3; right: 165px; top: 3px;
   cursor:pointer;cursor:hand;
-}
+} */
 #scanButton{
   color: black;
   font-size: large;
@@ -32,6 +39,7 @@ body{
   height: 30px;
   font-weight: bold;
   border:1px solid black;
+  margin-bottom: 5%;
 }
 #button{
   color: black;
@@ -41,6 +49,7 @@ body{
   height: 30px;
   font-weight: bold;
   border:1px solid black;
+  margin-bottom: 5%;
 }
 #amount{
   width: 140px;
@@ -48,7 +57,7 @@ body{
   border:2px solid black;
 }
 
-#left{
+ /* #left{
 padding-left: 13%;
 padding-right: 17%;
 }
@@ -59,16 +68,4 @@ padding-right: 17%;
 #right{
   padding-left: 15%;
   padding-right: 15%;
-}
-#td1{
-  padding-left: 13%;
-padding-right: 17%;
-}
-#td2{
-  padding-left: 15%;
-padding-right: 15%;
-}
-#td3{
-  padding-left: 15%;
-padding-right: 15%;
-}
+} */
