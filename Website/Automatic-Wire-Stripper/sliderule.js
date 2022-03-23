@@ -87,7 +87,7 @@ function onScanButtonClick() {
     options.filters.push({services: [filterService]});
   }
 
-  let filterName = 'GattServer';
+  let filterName = 'WireCutter';
   if (filterName) {
     options.filters.push({name: filterName});
   }
