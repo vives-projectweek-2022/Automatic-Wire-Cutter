@@ -11,6 +11,10 @@ td{
   margin-left: auto;
   margin-right: auto;
 }
+#td2{
+  margin-left: 55%;
+  margin-right: 45%;
+}
 
 .center {
   margin-left: auto;
