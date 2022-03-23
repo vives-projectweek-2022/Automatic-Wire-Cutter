@@ -5,11 +5,11 @@ var strt = new Array();
 var fact = new Array();
 var initial = new Array();
 var bb,aa = new Array();
-var datarray;
-var LeftStripped = document.getElementById('SlideRuleField_0').value;
-var middleNotStripped = document.getElementById('SlideRuleField_1').value;
-var RightStripped = document.getElementById('SlideRuleField_2').value;
-var amount2 = document.getElementById('amount').value;  
+
+var wirecutter;
+
+var buffer = new ArrayBuffer(8);
+var z = new Uint8Array(buffer, 0, 5);
 
 function resetSlideRules() {
   var u = initial.length;
@@ -70,14 +70,6 @@ function drags(e) {
   }
 }
 
-function startCutting(){
-  datarray = [LeftStripped, middleNotStripped, RightStripped, amount2];
-  console.log(LeftStripped);
-  console.log(middleNotStripped);
-  console.log(RightStripped);
-  console.log(amount2);
-  writeToCharacteristic();
-}
 
 function resetDragApproved() { dragapproved = false }
 
@@ -90,10 +82,7 @@ var bluetoothDevice;
 function onScanButtonClick() {
   let options = {filters: []};
 
-  let filterService = '';
-  if (filterService.startsWith('0x')) {
-    filterService = parseInt(filterService);
-  }
+  let filterService = 0xA000;
   if (filterService) {
     options.filters.push({services: [filterService]});
   }
@@ -115,7 +104,8 @@ function onScanButtonClick() {
   .then(server => server.getPrimaryService(0xA000))
   .then(service => service.getCharacteristic(0xA001))
   .then(characteristic => {
-    return characteristic.writeValue(datarray);
+    wirecutter = characteristic;
+    return;
   })
   .catch(error => {
     console.log('Argh! ' + error);
@@ -152,4 +142,22 @@ function writeToCharacteristic() {
   } else {
     console.log('> Bluetooth Device is disconnected');
   }
+}
+
+function startCutting() {
+  if(wirecutter) {
+
+    let LeftStripped = document.getElementById('SlideRuleField_0').value;
+    let middleNotStrippedRest = (document.getElementById('SlideRuleField_1').value % 256);
+    let middleNotStrippedFactor = Math.floor(document.getElementById('SlideRuleField_1').value / 256);
+    let RightStripped = document.getElementById('SlideRuleField_2').value;
+    let amount2 = document.getElementById('amount').value;
+
+    var int8;
+    console.log(LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2);
+    int8 = Uint8Array.from([LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2]);
+    wirecutter.writeValue(int8);
+    console.log(int8);
+  }
+
 }
