@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="sliderule.css">
+    <script src="sliderule.js"></script>
+    <title>WireCutter</title>
+</head>
+<body>
+    <h1 id="header">Automatic Wire Cutter</h1>
+    <form >
+      <table>
+        <br></br>
+        <br></br>
+        <tr>
+          <td class="center" colspan="3"><img src="Wiredone2.png" alt="stripped wire"></td>
+        </tr>
+        <tr>
+          <th id="left">
+            Left stripped
+          </th>
+          <th id="middle">
+            Middle unstripped
+          </th>
+          <th id="right">
+            Right stripped
+          </th>
+        </tr>
+        <tr>
+          <td id="td1"><input type="text" id="left" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" > mm</td>            
+          <td id="td2"><input type="text" id="middle" placeholder="Example: 250" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
+          <td id="td3"><input type="text" id="right" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
+          </tr>
+      </table>
+      <br></br>
+      <p>Amount of wires</p>
+      <input id="amount" type="text" /*value="1"*/ placeholder="Example: 20" pattern="[0-9]*" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+      <br></br>
+      <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
+      <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onClick="startCutting()">    
+      <!-- <input id="button" type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">    -->
+    </form>
+</body>
+</html>

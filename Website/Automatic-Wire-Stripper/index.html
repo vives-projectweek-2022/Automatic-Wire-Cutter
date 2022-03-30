@@ -6,41 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="sliderule.css">
     <script src="sliderule.js"></script>
-    <script src="scripts.js"></script>
     <title>Automatic-Wire-Cutter</title>
 </head>
 <body>
-  <h1 id="header">Automatic Wire Cutter</h1>
-    <form >
-      <table>
-        <br></br>
-        <br></br>
-        <tr>
-          <td class="center" colspan="3"><img src="Wiredone2.png" alt="stripped wire"></td>
-        </tr>
-        <tr>
-          <th id="left">
-            Left stripped
-          </th>
-          <th id="middle">
-            Middle unstripped
-          </th>
-          <th id="right">
-            Right stripped
-          </th>
-        </tr>
-        <tr>
-          <td id="td1" ><input type="text" /*id="SlideRuleField_0"*/  value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="2" /*class="SlideRuleField"*/ /*onchange="changeSlideRule(0)"*/> mm</td>            
-          <td  id="td2"><input type="text" /*id="SlideRuleField_1"*/ value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="4" /*class="SlideRuleField"*/ /*onchange="changeSlideRule(1)"*/> mm</td>
-          <td id="td3"><input type="text" /*id="SlideRuleField_2"*/ value="0" size="3" pattern="[0-9]*" inputmode="numeric" maxlength="2" /*class="SlideRuleField"*/ /*onchange="changeSlideRule(2)"*/> mm</td>
-          </tr>
-      </table>
-      <br></br>
-      <input id="amount" type="number" /*value="1"*/ placeholder="Nr of wires" pattern="[0-9]*" inputmode="numeric">
-      <br></br>
-      <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
-      <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onClick="startCutting()">    
-      <input id="button" type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">   
-    </form>
+  <input type="button" class="buttonstyler" value="WireCutter" onclick="location.href='wirecutter.html'" name="SelectCutter">
+  <input type="button" class="buttonstyler" value="ReelCutter" onclick="location.href='reel.html'" name="SelectCutter" >
 </body>
 </html>

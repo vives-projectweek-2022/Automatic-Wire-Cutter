@@ -11,6 +11,8 @@ var wirecutter;
 var buffer = new ArrayBuffer(8);
 var z = new Uint8Array(buffer, 0, 5);
 
+
+
 // function resetSlideRules() {
 //   var u = initial.length;
 //   for (i=0; i<u; i++)  initSlideRule(i,strt[i],fact[i],initial[i]);
@@ -71,15 +73,40 @@ var z = new Uint8Array(buffer, 0, 5);
 // }
 
 
-function resetDragApproved() { dragapproved = false }
+// function resetDragApproved() { dragapproved = false }
 
-document.onmousedown = drags;
-document.onmouseup = resetDragApproved;
-window.onload = resetSlideRules;
+// document.onmousedown = drags;
+// document.onmouseup = resetDragApproved;
+// window.onload = resetSlideRules;
 
 var bluetoothDevice;
 
+// function maxvalue(){
+//   const numberregex = "\b([1-9]|[1-9][0-9]|100)\b";
+//   numberregex.match(LeftStripped.value)
+//   if(numberregex.match(LeftStripped.value)==false){
+//     alert("wrong");
+//   }
+//   numberregex.match(middleNotStrippedFactor.value)
+//   if(numberregex.match(middleNotStrippedFactor.value)==false){
+//     alert("wrong");
+//   }
+//   numberregex.match(middleNotStrippedRest.value)
+//   if(numberregex.match(middleNotStrippedRest.value)==false){
+//     alert("wrong");
+//   }
+//   numberregex.match(RightStripped.value)
+//   if(numberregex.match(RightStripped.value)==false){
+//     alert("wrong");
+//   }
+//   numberregex.match(amount2.value)
+//   if(numberregex.match(amount2.value)==false){
+//     alert("wrong");
+//   }
+// }
+
 function onScanButtonClick() {
+
   let options = {filters: []};
 
   let filterService = 0xA000;
@@ -146,12 +173,13 @@ function writeToCharacteristic() {
 
 function startCutting() {
   if(wirecutter) {
-
-    let LeftStripped = document.getElementById('SlideRuleField_0').value;
-    let middleNotStrippedRest = (document.getElementById('SlideRuleField_1').value % 256);
-    let middleNotStrippedFactor = Math.floor(document.getElementById('SlideRuleField_1').value / 256);
-    let RightStripped = document.getElementById('SlideRuleField_2').value;
+    let LeftStripped = document.getElementById('left').value;
+    let middleNotStrippedRest = document.getElementById('middle').value % 256;
+    let middleNotStrippedFactor = Math.floor(document.getElementById('middle').value / 256);
+    let RightStripped = document.getElementById('right').value;
     let amount2 = document.getElementById('amount').value;
+        
+    
 
     var int8;
     console.log(LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2);
@@ -159,5 +187,4 @@ function startCutting() {
     wirecutter.writeValue(int8);
     console.log(int8);
   }
-
 }
