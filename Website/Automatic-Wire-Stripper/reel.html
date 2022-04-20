@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sliderule.css">
-    <script src="sliderule.js"></script>
+    <link rel="stylesheet" href="style.css">
     <script src="scripts.js"></script>
     <title>Reel-Cutter</title>
     
@@ -23,10 +22,10 @@
             The amount of reels
         </div>  
         <div class="grid-item item4">
-            <input type="radio" name="selectreel">0402
+            <input id="radio1" type="radio" name="selectreel">0402
         </div>
         <div class="grid-item item5">
-            <input type="text" placeholder="Nr of resistors per reel" pattern="[0-9]*" size="20" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input type="text" placeholder="Nr of components per reel" pattern="[0-9]*" size="20" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
         </div>
         <div class="grid-item item6">
             <input type="text" placeholder="Amount of reels" pattern="[0-9]*" size="15" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
@@ -41,5 +40,8 @@
             <input type="radio" name="selectreel">1206
         </div>
     </div>
+    <br>
+    <!-- <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
+    <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onclick="startCutting()"> -->
 </body>
 </html>

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="sliderule.css">
-    <script src="sliderule.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
     <title>WireCutter</title>
 </head>
 <body>
@@ -18,28 +18,28 @@
           <td class="center" colspan="3"><img src="Wiredone2.png" alt="stripped wire"></td>
         </tr>
         <tr>
-          <th id="left">
+          <th>
             Left stripped
           </th>
-          <th id="middle">
+          <th>
             Middle unstripped
           </th>
-          <th id="right">
+          <th>
             Right stripped
           </th>
         </tr>
         <tr>
-          <td id="td1"><input type="text" id="left" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" > mm</td>            
-          <td id="td2"><input type="text" id="middle" placeholder="Example: 250" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
-          <td id="td3"><input type="text" id="right" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
+          <td id="td1"><input type="text" id="leftInput" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');" > mm</td>            
+          <td id="td2"><input type="text" id="middleInput" placeholder="Example: 250" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
+          <td id="td3"><input type="text" id="rightInput" placeholder="Example: 25" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> mm</td>
           </tr>
       </table>
       <br></br>
       <p>Amount of wires</p>
-      <input id="amount" type="text" /*value="1"*/ placeholder="Example: 20" pattern="[0-9]*" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+      <input id="amountInput" type="text" /*value="1"*/ placeholder="Example: 20" pattern="[0-9]*" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
       <br></br>
       <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
-      <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onClick="startCutting()">    
+      <input id="button" type="button" value="Start Cutting" onclick="startCutting()">    
       <!-- <input id="button" type="button" name="SlideRuleReset" value="Reset" onClick="resetSlideRules()">    -->
     </form>
 </body>
