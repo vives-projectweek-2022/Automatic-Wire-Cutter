@@ -103,7 +103,7 @@ function writeToCharacteristic() {
   }
 }
 
-function startCutting() {
+function startCuttingWire() {
    if (wirecutter) {
      let LeftStripped = document.getElementById('leftInput').value;
      let middleNotStrippedRest = (document.getElementById('middleInput').value % 256);
@@ -112,22 +112,20 @@ function startCutting() {
      let amount2 = document.getElementById('amountInput').value;
      var int8;
      console.log(LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2);
-     int8 = Uint8Array.from([LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2]);
+     int8 = Uint8Array.from([LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2, 0, 0, 0]);
      wirecutter.writeValue(int8);
      console.log(int8);
   }
 }
-// function startCuttingreel() {
-//   if(wirecutter) {
-//     let code = document.getElementById('left').value;
-//     let middleNotStrippedRest = document.getElementById('middle').value % 256;
-//     let middleNotStrippedFactor = Math.floor(document.getElementById('middle').value / 256);
-//     let RightStripped = document.getElementById('right').value;
-//     let amount2 = document.getElementById('amount').value;
-//     var int8;
-//     console.log(LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2);
-//     int8 = Uint8Array.from([LeftStripped, middleNotStrippedFactor, middleNotStrippedRest, RightStripped, amount2]);
-//     wirecutter.writeValue(int8);
-//     console.log(int8);
-//   }
-// }
+function startCuttingReel() {
+  if(wirecutter) {
+    let reelType = document.getElementsById('reelTypeDropdown').value;
+    let reelLength = document.getElementById('reelLength').value;
+    let reelAmount = document.getElementById('reelAmount').value;
+    var int8;
+    console.log(reelType, reelLength, reelAmount);
+    int8 = Uint8Array.from([0, 0, 0, 0, 0, reelType, reelLength, reelAmount]);
+    wirecutter.writeValue(int8);
+    console.log(int8);
+  }
+}

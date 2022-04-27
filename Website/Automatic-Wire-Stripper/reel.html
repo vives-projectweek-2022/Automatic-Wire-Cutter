@@ -22,26 +22,22 @@
             The amount of reels
         </div>  
         <div class="grid-item item4">
-            <input id="radio1" type="radio" name="selectreel">0402
+            <select name="reelTypes" id="reelTypeDropdown">
+                <option value="1">0402</option>
+                <option value="2">0603</option>
+                <option value="3">0805</option>
+                <option value="4">1206</option>
+              </select>
         </div>
         <div class="grid-item item5">
-            <input type="text" placeholder="Nr of components per reel" pattern="[0-9]*" size="20" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="reelLength" type="text" placeholder="Nr of components per reel" pattern="[0-9]*" size="20" inputmode="numeric" maxlength="3" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
         </div>
         <div class="grid-item item6">
-            <input type="text" placeholder="Amount of reels" pattern="[0-9]*" size="15" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
+            <input id="reelAmount" type="text" placeholder="Amount of reels" pattern="[0-9]*" size="15" inputmode="numeric" maxlength="2" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
         </div>  
-        <div class="grid-item item7">
-            <input type="radio" name="selectreel">0603
-        </div>
-        <div class="grid-item item8">
-            <input type="radio" name="selectreel">0805
-        </div>
-        <div class="grid-item item9">
-            <input type="radio" name="selectreel">1206
-        </div>
     </div>
     <br>
-    <!-- <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
-    <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onclick="startCutting()"> -->
+    <input id="scanButton" type="button" value="Scan" onclick="onScanButtonClick()">
+    <input id="button" type="button" name="SlideRuleReset" value="Start Cutting" onclick="startCuttingReel()">
 </body>
 </html>
