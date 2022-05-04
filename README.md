@@ -1,31 +1,59 @@
 # Automatic-Wire-Cutter
 
-[This is the link to the program repo](https://github.com/vives-projectweek-2022/program-wire-cutter)
+Michiel Depraetere | Mark De Craemere | Axel Broeckert | Quinten Transé
+
+![wirecutter](./img/wirecutter.jpg)
 
 ## PARTS
 
-[Stappenmotor](https://www.amazon.nl/gp/product/B08RB5F9RW/ref=ox_sc_act_title_1?smid=A3MWTOW3Y5FBF1&psc=1)
+### Electronic implementation
+
+We use the following steppermotor for the cablefeeder as well as for the motor that drives the pliers:
+
+[Steppermotor](https://www.amazon.nl/gp/product/B08RB5F9RW/ref=ox_sc_act_title_1?smid=A3MWTOW3Y5FBF1&psc=1)
 
 ![Stappenmotor](./img/stappenmotor.PNG)
 
-[Servomotor](https://www.amazon.nl/gp/product/B0963YBY9P/ref=ox_sc_act_title_6?smid=AT7XAAFAVZAGB&psc=1)
+The microcontroller that is used in the project is a NUCLEO WB55RG:
 
-![Servomotor](./img/servo.PNG)
+![Nucleo](./img/Nucleo.png)
 
-[Arduino CNC shield](https://www.amazon.nl/gp/product/B07CQRPFFW/ref=ewc_pr_img_7?smid=A3BI8G9NTBZUKM&psc=1)
+This is the shield with drivers implemented on it:
 
-![Arduino CNC shield](./img/arduinoCNCShield.jpg)
+![Shield](./img/shield.png)
 
-[Stappenmotordriver](https://www.amazon.nl/gp/product/B07YFS29W7/ref=ewc_pr_img_4?smid=A1A7E5ILEFA1R3&psc=1)
+### Mechanical design
 
-![Stappenmotordriver](./img/stappenmotordriver.jpg)
+The frame is made out of maker beams, the other mechanical parts are 3D-printed.
 
-[ESP example code](https://os.mbed.com/teams/mbed-os-examples/code/mbed-os-example-mbed5-wifi/)
+![3D-design](./img/3D.png)
+
+These are the pliers to cut and strip the cable:
 
 ![Tang](./img/Tang.PNG)
 
-[Tang](https://www.amazon.nl/Cutter-Kabel-Stripper-Elektrische-Elektricien-Handgereedschap/dp/B08SBY64J1/ref=sr_1_10?__mk_nl_NL=%C3%85M%C3%85%C5%BD%C3%95%C3%91&crid=1G7WO3J83OX59&keywords=stripper+and+cutter&qid=1645606617&sprefix=stripper+and+cutter%2Caps%2C90&sr=8-10)
+### Website
 
-## Bestellijst
+This is the interface of the website:
 
-![bestellijst](./img/Bestellijst.png)
+![interface website](./img/interface.png)
+
+### Communication
+
+The communication between the website and the NUCLEO is via Bluetooth Low Energy.
+
+## Setup
+
+To get this repository, go to a local file directory and execute the following command:
+
+```bash
+git clone git@github.com:vives-projectweek-2022/Automatic-Wire-Cutter.git
+```
+
+To compile the program on a NUCLEO use the following command:
+
+```bash
+conda activate mbed
+mbed target detect
+mbed compile -f --sterm --baudrate 115200
+```
