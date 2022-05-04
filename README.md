@@ -2,7 +2,7 @@
 
 Michiel Depraetere | Mark De Craemere | Axel Broeckert | Quinten Transé
 
-![wirecutter](./wirecutter.jpg)
+![wirecutter](./img/wirecutter.jpg)
 
 ## PARTS
 
