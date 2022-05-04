@@ -11,14 +11,14 @@ void Wirecutter::feedCable(int length) {
 
 void Wirecutter::cutCable() {
     cableCutter.setDirection("clockwise");
-    cableCutter.rotate(630);
+    cableCutter.rotate(660);
     cableCutter.setDirection("counterclockwise");
-    cableCutter.rotate(630);
+    cableCutter.rotate(660);
 }
 
 void Wirecutter::stripCable() {
     cableCutter.setDirection("clockwise");
-    cableCutter.rotate(606);
+    cableCutter.rotate(625);
     cableCutter.setDirection("counterclockwise");
-    cableCutter.rotate(606);
+    cableCutter.rotate(625);
 }
